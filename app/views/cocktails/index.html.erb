@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h1>Cocktails</h1>
+  <br>
+  <div class="container-cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1582837611539-e3020079eab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=694&q=80)">
+        <p><%= link_to "#{cocktail.name}", cocktail_path(cocktail.id) %></p>
+
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to "➕ Add new cocktail", new_cocktail_path %>
+</div>

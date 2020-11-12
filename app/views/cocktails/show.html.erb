@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h1><%= @cocktail.name %></h1>
+  <br>
+  <h4>Description</h4>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, tempore, sit. Nobis necessitatibus hic ea. Amet nobis ducimus cupiditate deserunt culpa optio dolores omnis nemo? Illum, maxime architecto a dignissimos!</p>
+  <br>
+  <h4>Ingredients</h4>
+  <ul class="list-group list-group-flush">
+    <% @cocktail.doses.each do |dose| %>
+    <li class="list-group-item"><%= dose.description %> of <%= dose.ingredient.name.capitalize %><%= link_to " delete", cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: "Are you sure?"} %></li>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail) %>
+  <hr>
+  <%= link_to "Back to cocktails", cocktails_path %>
+</div>
