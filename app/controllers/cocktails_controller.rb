@@ -5,8 +5,11 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
-  def show
+  def search_cocktail
+    redirect_to search_cocktails_path(params[:name])
+  end
 
+  def show
   end
 
   def new

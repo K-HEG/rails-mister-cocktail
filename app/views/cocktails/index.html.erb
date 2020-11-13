@@ -11,18 +11,18 @@
       <li>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Find a cocktail" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn my-2 my-sm-0" type="submit">Search</button>
         </form>
       </li>
     </ul>
   </div>
 </div>
 
-<div class="container mt-5">
-<!--   <h1>Cocktails</h1> -->
-  <br>
-  <br>
-  <div class="container-cards">
+<div class="container mt-50">
+<!--   <h1 >Cocktails</h1>
+  <br> -->
+<!--   <br> -->
+  <div class="container-cards" style="margin-top: 100px">
     <% @cocktails.each do |cocktail| %>
     <% if cocktail.photo.attached? %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
@@ -36,5 +36,5 @@
     <% end %>
   </div>
   <br>
-  <%= link_to "➕ Add new cocktail", new_cocktail_path %>
+  <%= link_to "✚ Add new cocktail", new_cocktail_path, class: "btn" %>
 </div>
