@@ -2,6 +2,7 @@
   <a class="navbar-brand" href="#">
     <img src="https://www.flaticon.com/svg/static/icons/svg/168/168558.svg" />
   </a>
+  <h4>MIXOLOGIST</h4>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,14 +19,20 @@
 </div>
 
 <div class="container mt-5">
-  <h1>Cocktails</h1>
+<!--   <h1>Cocktails</h1> -->
+  <br>
   <br>
   <div class="container-cards">
     <% @cocktails.each do |cocktail| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1582837611539-e3020079eab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=694&q=80)">
+    <% if cocktail.photo.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
         <p><%= link_to "#{cocktail.name}", cocktail_path(cocktail.id) %></p>
-
       </div>
+    <% else %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1573812808311-43b8a5ea358f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80)">
+        <p><%= link_to "#{cocktail.name}", cocktail_path(cocktail.id) %></p>
+      </div>
+    <% end %>
     <% end %>
   </div>
   <br>

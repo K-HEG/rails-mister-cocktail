@@ -1,5 +1,6 @@
 .container {
   width: 1000px;
+  margin-top: 50px;
 }
 
 .container-cards {
@@ -7,4 +8,11 @@
   text-align: center;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.cocktail-body {
+  display: flex;
+  .cocktail-body-text {
+    padding-left: 20px;
+  }
 }
